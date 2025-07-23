@@ -1,0 +1,68 @@
+<style>
+ html, body {
+    padding: 0px;
+    height: 200vh;
+    text-align: left;
+    margin: 0%;
+    }   
+
+  .background-overlay{
+  background-image: url('https://papers.co/wallpaper/papers.co-sf92-blue-gray-gradation-blur-6-wallpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  height: 80vh;
+  width: 200vh;    
+  display: flex;
+  position: relative; 
+  overflow: hidden;
+  align-items: center;
+  margin: 5%;
+}
+
+.content {
+  font-family: 'Times New Roman', Times, serif;
+  width: 55%;
+  margin-left: 20%;
+  color: rgb(166, 167, 167);
+}
+
+.content h4 {
+  font-size: 35px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+  .content span{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(208, 226, 2);
+
+  }
+
+.foreground-image {
+    position: absolute;
+    z-index: 2;
+    top: 54%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    height: 110%;
+    object-fit: contain;
+    filter: drop-shadow(30px 10px 20px rgba(11, 11, 11, 0.5))
+  }
+
+</style>
+
+<body>
+  <div class="background-overlay">
+    <div class="content">
+      <h4>Name:   <span>M Pradeep</span></h4>
+      <h4>DOB:    <span>07 January 2001</span></h4>
+      <h4>Mobile: <span>9381791909</span></h4>
+      <h4>Gmail:  <span>mpradeepk1611&#64;gmail.com</span></h4>
+      <h4>Place:  <span>Gadwal</span></h4>
+    </div>
+
+    <img class="foreground-image" src="https://i.postimg.cc/sDTmFHGS/presonal-details.png" alt="Foreground Image" />
+  </div>
+</body>
+

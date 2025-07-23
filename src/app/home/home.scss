@@ -1,0 +1,217 @@
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+  /*Home section*/
+
+.home {
+  background-color: var(--snd-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  padding: 12rem 9% 5rem;
+}
+
+.home-img {
+  flex: 1;
+  text-align: center;
+}
+
+.home-img img {
+    position: relative;
+    top: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  background: var(--main-color);
+  padding: 1px;
+  animation: floatImage 4s ease-in-out infinite ;
+  transition: 0.4s ease;
+}
+
+.home-img img:hover{
+    color: var(--main-color);
+    box-shadow: 0 0 15px var(--main-color),
+                0 0 25px var(--main-color),
+                0 0 35px var(--main-color)
+}
+    @keyframes floatImage{
+        0%{
+            transform: translateY(0);
+        }
+        50%{
+            transform: translateY(-2.4rem);
+        }
+        100%{
+            transform: translateY(0);
+        }
+    }
+
+.home-content {
+  flex: 2;
+}
+
+.home-content h3 {
+    font-family: sans-serif;
+  color: black;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.home-content h4 {
+    font-family: sans-serif;
+  color: black;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.home-content h4 span {
+  position: relative;
+  display: inline-block;
+  color: #007f73;
+  font-size: 2.4rem;
+  font-weight: 700;
+
+  /* Reveal effect */
+  animation: clipReveal 5s steps(24) infinite;
+}
+
+@keyframes clipReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+.home-content h4 span::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #007f73;
+  border-right: 2px solid #007f73;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  line-height: inherit;
+  height: 100%;
+
+  /* Typing effect */
+  animation: typing 5s steps(24) infinite;
+}
+
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+.home-content h1 {
+    color: #007f73;
+  font-size: 4.2rem;
+  font-weight: 700;
+}
+
+.home-content h2 {
+  font-size: 2.5rem;
+  color: var(--main-color);
+}
+
+.home-content p {
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  max-width: 500px;
+}
+
+/* Social Icons */
+
+.social-media {
+  margin: 2rem 0;
+}
+
+.social-media a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 37px;
+  margin-right: 35px;
+  text-align: center;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  color: var(--main-color);
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.social-media a:hover{
+    transform: scale(1.2) translateY(-10px);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--main-color);
+    border: none;
+}
+
+.icon-github:hover {
+    background: #4d4c4c;
+}
+
+.icon-linkedin:hover {
+  background: #0a66c2;
+}
+
+.icon-gmail:hover {
+  background: #cc3833;
+}
+
+.icon-instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.icon-whatsapp:hover {
+  background: #04ca50;
+}
+
+/* Download CV Button */
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    font-size: 0.8rem;
+    color: var(--bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn:hover{
+    box-shadow: 0 0 1.6rem var(--main-color);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+  }
+}

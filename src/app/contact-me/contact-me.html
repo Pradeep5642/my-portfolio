@@ -1,0 +1,180 @@
+
+<body class="container">
+
+    <section class="container-fluid main">
+    
+    <h4 class="h1" *ngIf="submitted" >🎉 Form submitted successfully 🎉 </h4>
+
+        <form #ContactForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" >
+            
+    <h1>Contact form</h1>
+        <div class="form-group">
+        <input  class="form-control" 
+                [class.is-invalid]="name.invalid && name.touched"
+                placeholder="Name"
+                type="text"
+                name="Username" 
+                #name="ngModel" 
+                required      
+                [(ngModel)]="ctmod.Name" >
+
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched"> *Name is required*</small>
+        <small class="text-danger" *ngIf="name.value=='admin'">Name "{{name.value}}" not allowed</small>
+        <small class="text-danger" *ngIf="name.value=='Password'">Name "{{name.value}}" not allowed</small>
+        </div>
+
+        <p></p>
+
+        <div class="form-group">
+         <input class="form-control" [class.is-invalid]="email.invalid && email.touched" placeholder="Email" type="text" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" name="Mail" #email="ngModel" required [(ngModel)]="ctmod.Email">
+         <div *ngIf="email.errors && (email.valid || email.touched)">
+         <small class="text-danger" *ngIf="email.errors?.['required']"> *Email is required*</small>
+         <small class="text-danger" *ngIf="email.errors?.['pattern']">*Enter a valid email*</small>
+         </div>
+        </div>
+
+        <p></p>
+
+        <div class="form-group">
+          <input class="form-control" [class.is-invalid]="phone.invalid && phone.touched" placeholder="Phone" type="tel" pattern="^\d{10}$" name="Phone" #phone="ngModel"  required [(ngModel)]="ctmod.Phone">
+            <div  *ngIf="phone.errors && (phone.valid || phone.touched)">
+                <small class="text-danger" *ngIf="phone.errors?.['required']"> *Phone number is required*</small>
+                <small class="text-danger" *ngIf="phone.errors?.['pattern']"> *Phone number must be 10 digits*</small>
+            </div>
+        </div>
+ 
+        <p></p>
+
+        <div class="form-group">
+          <select (blur)="validateReason(Reason.value)" (change)="validateReason(Reason.value)" #Reason="ngModel" class="custom-select" [class.is-invalid]="ReasonHasError && Reason.touched" name="Purpose" required [(ngModel)]="ctmod.Purpose">
+              <option value='default' disabled selected> Purpose</option>
+              <option *ngFor="let pur of purpose"> {{pur}} </option>        
+          </select>
+          <small class="text-danger" [class.d-none]="!ReasonHasError || Reason.untouched"> *Please choose the purpose*</small>
+        </div>
+
+        <p></p>
+        
+        <div ngModelGroup="address">
+            Addreess:
+            <div class="form-group"> 
+                <input placeholder="Street" type="text" #street="ngModel" class="form-control" required name="Street" [(ngModel)]="ctmod.Street">
+                <small class="text-danger" [class.d-none]="street.valid || street.untouched"> *Street is required*</small>
+
+            </div>
+            <div class="form-group"> 
+                <input placeholder="City" type="text" #city="ngModel" class="form-control" required name="City" [(ngModel)]="ctmod.City">
+                <small class="text-danger" [class.d-none]="city.valid || city.untouched"> *City is required*</small>
+            </div>
+            <div class="form-group"> 
+                <input placeholder="State" type="text" #state="ngModel" class="form-control" required name="State" [(ngModel)]="ctmod.State">
+                <small class="text-danger" [class.d-none]="state.valid || state.untouched"> *State is required*</small>
+            </div>  
+            <div class="form-group">
+                <input placeholder="Postalcode" type="text" #code="ngModel" class="form-control" required name="Postalcode" [(ngModel)]="ctmod.Postalcode">
+                <small class="text-danger" [class.d-none]="code.valid || code.untouched"> *Postalcode is required*</small>          
+            </div>
+        </div>
+        <p></p>
+
+          <button [disabled]="ContactForm.form.invalid || ReasonHasError" class="btn btn-primary" type="submit"> Submit </button>
+
+    </form>
+</section>
+
+</body>
+
+
+
+
+
+
+<!-- //*REACTIVE FORM*//
+
+<body class="container">
+
+<div class="container-fluid main">
+  
+<h4 class="h1" *ngIf="submitted" >🎉 Form submitted successfully 🎉 </h4>
+
+    <form [formGroup]="registrationForm" >
+        
+    <h1>Registration form</h1>
+
+        <P></P>
+
+        <div class="form-group">
+        <input type="text" [class.is-invalid]="Name?.invalid && Name?.touched" formControlName="Name" class="form-control" placeholder="Name">
+        <div *ngIf="Name?.invalid && Name?.touched" >
+        <small class="text-danger" *ngIf="Name?.errors?.['required']"> *Name is required</small>
+        <small class="text-danger" *ngIf="Name?.errors?.['minlength']"> User name must be atleast 3 characters</small>
+        <small class="text-danger" *ngIf="Name?.errors?.['forbiddenName']"> name "{{Name?.errors?.['forbiddenName'].value}}" is not allowed</small>
+
+        </div>
+        </div>
+
+        <p></p>
+
+
+        <div class="form-group">
+        <input [class.is-invalid]="Email?.invalid && Email?.touched"
+                formControlName="Email"
+                class="form-control"
+                placeholder="Email">
+        <small class="text-danger" *ngIf="Email?.errors?.['required'] && Email?.touched"> *Email is required </small>
+        </div>
+
+        <div class="form-group">
+        <input [class.is-invalid]="ConfirmEmail?.errors?.['emailMismatch'] && ConfirmEmail?.touched"
+               formControlName="ConfirmEmail"
+               class="form-control"
+               placeholder="Confirm Email">
+        <small class="text-danger" *ngIf="ConfirmEmail?.errors?.['emailMismatch'] && ConfirmEmail?.touched"> *Emails do not match </small>
+        </div>
+
+        <p></p>
+
+        <div class="form-group">
+        <input [class.is-invalid]="Password?.invalid && Password?.touched"
+                formControlName="Password"
+                class="form-control"
+                placeholder="Password">
+        <small class="text-danger" *ngIf="Password?.errors?.['required'] && Password?.touched"> *Password is required</small>
+        </div>
+
+        <div class="form-group">
+        <input [class.is-invalid]="Confirmpassword?.errors?.['passwordMismatch'] && Confirmpassword?.touched"
+                formControlName="Confirmpassword"
+                class="form-control"
+                placeholder="Confirm Password">
+        <small class="text-danger" *ngIf="Confirmpassword?.errors?.['passwordMismatch'] && Confirmpassword?.touched"> *Passwords do not match </small>
+        </div>
+
+        <p></p>
+
+        <div formGroupName="Address"  >
+        Address
+        <div class="form-group" >
+        <input formControlName="City" class="form-control" placeholder="City">
+        </div>
+
+        <div class="form-group">
+        <input formControlName="State" class="form-control" placeholder="State">
+        </div>
+
+        <div class="form-group">
+        <input formControlName="Postalcode" class="form-control" placeholder="Postal code">
+        </div>
+        </div>
+
+        <p></p>
+
+
+        <button class="btn btn-primary" type="submit"> Register </button> |
+        <button (click)="loadData()" class="btn btn-secondary ml-2" type="Load"> Load Data </button>
+
+    </form>
+</div>
+      <img class="foreground-image" src="https://i.postimg.cc/gJnn7601/hide.png" alt="Foreground Image" />
+
+</body>  -->

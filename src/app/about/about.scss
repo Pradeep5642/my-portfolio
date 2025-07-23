@@ -1,0 +1,123 @@
+
+
+section{
+    min-height: 90vh;
+}
+
+
+/*About css code*/
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--snd-color);
+    color: var(--text-color);   
+}   
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 2000;
+    text-align: left;
+}
+
+
+.about-content h2 {
+    color: var(--main-color);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1.5rem ;
+    max-width: 800px;
+    text-align: left;
+    text-justify: newspaper;
+    line-height: 1.6;
+}
+
+.about-content a{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+}
+
+.rmbtn{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    display: inline-block;
+    padding:  0.4rem 1.2rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    font-size: 0.5rem;
+    margin: 1rem auto 0;
+    display: block;
+    color: var(--bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 800;
+    transition: 0.3s ease;
+    justify-content: center;
+}
+
+.rmbtn:hover{
+    box-shadow: 0 0 1.6rem var(--main-color);
+}
+
+
+.footer{
+    display: flex;
+    background-color:  rgb(199, 198, 198);
+    padding: 13px;
+    align-items: right;
+    justify-content: center;
+}
+
+.footer social-media {
+  margin: 2rem 0;
+}
+
+.social-media a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 37px;
+  margin-right: 35px;
+  text-align: center;
+  border: 2px solid var(--snd-color);
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.social-media a:hover{
+    transform: scale(1.2) translateY(-10px);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--main-color);
+    border: none;
+}
+
+.icon-github:hover {
+    background: #4d4c4c;
+}
+
+.icon-linkedin:hover {
+  background: #0a66c2;
+}
+
+.icon-gmail:hover {
+  background: #cc3833;
+}
+
+.icon-instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.icon-whatsapp:hover {
+  background: #04ca50;
+}
+
+
