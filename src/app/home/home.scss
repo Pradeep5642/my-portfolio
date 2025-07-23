@@ -96,6 +96,7 @@ section{
 
 .home-content h4 span::before {
   content: attr(data-text);
+  
   position: absolute;
   top: 0;
   left: 0;
@@ -215,3 +216,4 @@ section{
     text-align: center;
   }
 }
+ 
