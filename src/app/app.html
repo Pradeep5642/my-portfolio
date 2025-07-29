@@ -1,17 +1,18 @@
 
 <body>
 
-<header class="header"> 
-    <a href="#home" class="logo"> Pradeep M</a>
+<header [ngClass]="{ 'transparent-header': isHomePage, 'colored-header': !isHomePage }">
+ 
+    <!-- <a href="#home" class="logo"> Pradeep M</a> -->
 
     <i class='bx  bx-menu-wider' id="menu-icon" ></i> 
 
     <nav class="navbar">
-      <a href="/home" routerLinkActive="active" >Home</a> 
+    <a href="/home" routerLinkActive="active" >Home</a> 
     <a routerLink="/about" routerLinkActive="active" >About</a>
     <!-- <a routerLink="/personaldetails">Personal Details</a>  -->
-    <a routerLink="/educationdetails">Education</a>
-    <a routerLink="/skills">Skills</a>
+    <a routerLink="/educationdetails" routerLinkActive="active">Education</a>
+    <a routerLink="/skills" routerLinkActive="active">Skills</a>
     <!-- <a routerLink="/contactme">Contact Me</a> -->
     </nav>
 

@@ -11,47 +11,48 @@
 
 :root{
     --bg-color: #fff;
-    --snd-color: #d5fdf9;
-    --text-color: #000;
-    --main-color: #007f73;
+    --snd-color: #000;
+    --text-color: #79c4c0;
+    --main-color: #2f5e5e;
 }
 
 /*Header section*/
 
-.header{
-    background-color: var(--snd-color);
+.transparent-header {
+  background: transparent;
     position: fixed;
     width: 100%;
     top: 0;
     right:0;
-    z-index: 1000;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 5rem ;
-    background-color: var(--main-color);
-    backdrop-filter: blur(10px);
+    padding: 1rem 6rem ;
     transition: all 0.5s ease;
 }
 
-.logo{
-    font-size: 1.7rem ;
-    color: var(--bg-color);
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s ease; 
-}
-
-.logo:hover{
-    transform:scale(1.05) ;
+/* Colored on Other Pages */
+.colored-header {
+    background: var(--main-color); /* or any color you want */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right:0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 6rem ;
+    transition: all 0.5s ease;
 }
 
 
 .navbar a{
     font-family: -apple-system, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--bg-color);
-    margin-left: 2rem;
+    margin-left: 3rem;
     font-weight: 700;
     position: relative;
     transition: all 0.3s ease;
@@ -60,7 +61,7 @@
 .navbar a::after {
   content: "";
   height: 2px;
-  background: linear-gradient(to right,  #d5fdf9, #007f73, #d5fdf9);
+  background: linear-gradient(to right,var(--main-color), var(--text-color), var(--main-color));
   width: 0;
   position: absolute;
   left: 0;
@@ -75,3 +76,17 @@
 .navbar a:hover, .navbar a.active{
     color: var(--text-color);
 }
+
+
+
+// .logo{
+//     font-size: 1.7rem ;
+//     color: var(--bg-color);
+//     font-weight: 700;
+//     cursor: pointer;
+//     transition: 0.3s ease; 
+// }
+
+// .logo:hover{
+//     transform:scale(1.05) ;
+// }

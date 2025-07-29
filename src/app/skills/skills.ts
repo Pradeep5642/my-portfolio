@@ -12,8 +12,6 @@ import { CommonModule } from '@angular/common';
 export class Skills {
   active: string = 'Angular';
 
-  
-  
 constructor (private router: Router){}
  
 onSelect(){ 
