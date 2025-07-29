@@ -34,7 +34,7 @@
 
 /* Colored on Other Pages */
 .colored-header {
-    background: var(--main-color); /* or any color you want */
+    background: var(--main-color);
     position: fixed;
     width: 100%;
     top: 0;
@@ -77,16 +77,3 @@
     color: var(--text-color);
 }
 
-
-
-// .logo{
-//     font-size: 1.7rem ;
-//     color: var(--bg-color);
-//     font-weight: 700;
-//     cursor: pointer;
-//     transition: 0.3s ease; 
-// }
-
-// .logo:hover{
-//     transform:scale(1.05) ;
-// }
