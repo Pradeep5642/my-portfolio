@@ -35,7 +35,7 @@ section{
   left: 1200px; 
   width: 500px;
   height: 500px;
-  background-color: #f1f1f1;
+  background-color: var(--main-color);
   border-radius: 50%;
   z-index: 0;
   transform: translateX(1000px) rotate(0deg);
@@ -60,7 +60,6 @@ section{
   width: 40%;
   height: 40%;
   transform: translateY(1000px) rotate(0deg);
-  mix-blend-mode: multiply;
   border-radius: 51%;
   object-fit: cover;
   overflow: hidden;
@@ -220,22 +219,27 @@ section{
 
 .icon-github {
     background: #4d4c4c;
+    opacity: 70%;
 }
 
 .icon-linkedin {
   background: #0a66c2;
+  opacity: 70%;
 }
 
 .icon-gmail {
   background: #cc3833;
+  opacity: 70%;
 }
 
 .icon-instagram {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  opacity: 70%;
 }
 
 .icon-whatsapp{
   background: #04ca50;
+  opacity: 70%;
 }
 
 
@@ -243,22 +247,27 @@ section{
 
 .icon-github:hover {
     background: #4d4c4c;
+    opacity: 100%;
 }
 
 .icon-linkedin:hover {
   background: #0a66c2;
+  opacity: 100%;
 }
 
 .icon-gmail:hover {
   background: #cc3833;
+  opacity: 100%;
 }
 
 .icon-instagram:hover {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  opacity: 100%;
 }
 
 .icon-whatsapp:hover {
   background: #04ca50;
+  opacity: 100%;
 }
 
 /* Download CV Button */

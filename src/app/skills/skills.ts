@@ -10,9 +10,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './skills.scss'
 })
 export class Skills {
-  active: string = 'Angular';
+  activeSkill: string = '';
 
 constructor (private router: Router){}
+
+ Showmsg(skill: string) {
+    this.activeSkill = skill;
+  }
  
 onSelect(){ 
   this.router.navigate(['/skills']);

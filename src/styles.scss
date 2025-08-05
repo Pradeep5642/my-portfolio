@@ -12,7 +12,12 @@
 :root{
     --bg-color: #fff;
     --snd-color: #000;
-    --text-color: #79c4c0;
-    --main-color: #2f5e5e;
+    --text-color: #d7d7d7;
+    --main-color: #01546f;
 }
 
+.message {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+}
