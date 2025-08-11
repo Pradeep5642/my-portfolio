@@ -37,9 +37,8 @@ export class ContactMe  {
 
   onSubmit() {
               this.submitted = true;
-            
+              
               this.myservice.enroll(this.ctmod).subscribe({
-
                 next: (data) => console.log('Success', data),
                 error: (error) => this.errorMsg= error.statusText
                                                         });

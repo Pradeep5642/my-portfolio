@@ -1,120 +1,144 @@
-/* Base Styling */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #dff2f2, #f5e8ff);
-  min-height: 100vh;
+
+.container {
+  margin-top: 3%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  min-height: 83.5vh;
+  background-color: var(--text-color);
 }
 
-section.main {
-  width: 100%;
-  max-width: 600px;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 20px;
-  margin: 40px 15px;
-}
 
-/* Header */
-section.main h1 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #007f73;
-  font-size: 2rem;
-}
-
-section.main h4.h1 {
-  text-align: center;
-  color: #28a745;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-/* Input Fields */
-.form-group {
-  margin-bottom: 18px;
-}
-
-.form-control,
-.custom-select {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+form {
   background: #ffffff;
-  transition: all 0.3s ease;
-}
-
-.form-control:focus,
-.custom-select:focus {
-  border-color: #007f73;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 127, 115, 0.3);
-}
-
-/* Invalid Styling */
-.is-invalid {
-  border-color: #dc3545 !important;
-  background-color: #fff0f0;
-}
-
-.text-danger {
-  font-size: 0.85rem;
-  margin-top: 4px;
-  display: block;
-}
-
-/* Select */
-.custom-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='16' height='16' fill='gray' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1rem;
-}
-
-/* Address Section */
-[ngModelGroup='address'] {
-  margin-top: 25px;
-  padding: 15px;
-  border: 1px solid #e1e1e1;
-  border-radius: 12px;
-  background-color: #fdfdfd;
-}
-
-[ngModelGroup='address']::before {
-  content: 'Address Details';
-  display: block;
-  font-weight: bold;
-  color: #444;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-/* Submit Button */
-button[type='submit'] {
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(146, 145, 145, 0.1);
+  max-width: 500px;
   width: 100%;
-  background-color: #007f73;
-  color: #fff;
-  padding: 12px 20px;
-  font-size: 1rem;
+}
+
+
+form small {
+  color: red;
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+form h3 {
+  color: grey;
+  font-size: 13px;
+}
+
+.h4 {
+  color: green;
+  font-size: 25px;
+}
+
+form input {
+  height: 30px;
+  width: 100%;
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+}
+
+form ::placeholder {
+  padding: 0.5rem;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #61adff;
+}
+
+form input::content {
+  padding: 0.5rem;
+}
+
+form input.is-invalid {
+  border: 1px solid red;
+}
+
+form select {
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+form button[disabled] {
   border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+  color: black;
+  background-color: rgb(215, 214, 214);
 }
 
-button[type='submit']:hover {
-  background-color: #005f57;
+form button {
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  height: 30px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
-button[disabled] {
-  background-color: #ccc !important;
-  cursor: not-allowed;
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.footer{
+    display: flex;
+    background-color:  var(--main-color);
+    padding: 12.8px;
+    align-items: right;
+    justify-content: center;
+}
+
+.footer social-media {
+  margin: 2rem 0;
+}
+
+.social-media a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 37px;
+  margin-right: 35px;
+  text-align: center;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.social-media a:hover{
+    transform: scale(1.2) translateY(-10px);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--main-color);
+    border: none;
+}
+
+.icon-github:hover {
+    background: #4d4c4c;
+}
+
+.icon-linkedin:hover {
+  background: #0a66c2;
+}
+
+.icon-gmail:hover {
+  background: #cc3833;
+}
+
+.icon-instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.icon-whatsapp:hover {
+  background: #04ca50;
 }

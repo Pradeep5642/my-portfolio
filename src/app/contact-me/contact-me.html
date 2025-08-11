@@ -1,91 +1,212 @@
+<body class="container-fluid">
 
-<body class="container">
+<section class="container ">  
 
-    <section class="container-fluid main">
-    
-    <h4 class="h1" *ngIf="submitted" >🎉 Form submitted successfully 🎉 </h4>
+  <h4 class="h4" *ngIf="submitted">🎉 Form submitted successfully 🎉</h4>
 
-        <form #ContactForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" >
-            
+  <form #ContactForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()">
     <h1>Contact form</h1>
-        <div class="form-group">
-        <input  class="form-control" 
-                [class.is-invalid]="name.invalid && name.touched"
-                placeholder="Name"
-                type="text"
-                name="Username" 
-                #name="ngModel" 
-                required      
-                [(ngModel)]="ctmod.Name" >
 
-        <small class="text-danger" [class.d-none]="name.valid || name.untouched"> *Name is required*</small>
-        <small class="text-danger" *ngIf="name.value=='admin'">Name "{{name.value}}" not allowed</small>
-        <small class="text-danger" *ngIf="name.value=='Password'">Name "{{name.value}}" not allowed</small>
-        </div>
+    <!-- Name -->
+    <div class="form-group">
+      <input
+        class="form-control"
+        [class.is-invalid]="name.invalid && name.touched"
+        placeholder="Name"
+        type="text"
+        name="Username"
+        #name="ngModel"
+        required
+        [(ngModel)]="ctmod.Name"
+      />
 
-        <p></p>
+      <small class="text-danger" *ngIf="name.invalid && name.touched">
+        *Name is required*
+      </small>
+      <small class="text-danger" *ngIf="name.value === 'admin'">
+        Name "{{ name.value }}" not allowed
+      </small>
+      <small class="text-danger" *ngIf="name.value === 'Password'">
+        Name "{{ name.value }}" not allowed
+      </small>
+    </div>
 
-        <div class="form-group">
-         <input class="form-control" [class.is-invalid]="email.invalid && email.touched" placeholder="Email" type="text" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" name="Mail" #email="ngModel" required [(ngModel)]="ctmod.Email">
-         <div *ngIf="email.errors && (email.valid || email.touched)">
-         <small class="text-danger" *ngIf="email.errors?.['required']"> *Email is required*</small>
-         <small class="text-danger" *ngIf="email.errors?.['pattern']">*Enter a valid email*</small>
-         </div>
-        </div>
+    <p></p>
 
-        <p></p>
+    <!-- Email -->
+    <div class="form-group">
+      <input
+        class="form-control"
+        [class.is-invalid]="email.invalid && email.touched"
+        placeholder="Email"
+        type="text"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        name="Mail"
+        #email="ngModel"
+        required
+        [(ngModel)]="ctmod.Email"
+      />
 
-        <div class="form-group">
-          <input class="form-control" [class.is-invalid]="phone.invalid && phone.touched" placeholder="Phone" type="tel" pattern="^\d{10}$" name="Phone" #phone="ngModel"  required [(ngModel)]="ctmod.Phone">
-            <div  *ngIf="phone.errors && (phone.valid || phone.touched)">
-                <small class="text-danger" *ngIf="phone.errors?.['required']"> *Phone number is required*</small>
-                <small class="text-danger" *ngIf="phone.errors?.['pattern']"> *Phone number must be 10 digits*</small>
-            </div>
-        </div>
- 
-        <p></p>
+      <div *ngIf="email.invalid && email.touched">
+        <small class="text-danger" *ngIf="email.errors?.['required']">
+          *Email is required*
+        </small>
+        <small class="text-danger" *ngIf="email.errors?.['pattern']">
+          *Enter a valid email*
+        </small>
+      </div>
+    </div>
 
-        <div class="form-group">
-          <select (blur)="validateReason(Reason.value)" (change)="validateReason(Reason.value)" #Reason="ngModel" class="custom-select" [class.is-invalid]="ReasonHasError && Reason.touched" name="Purpose" required [(ngModel)]="ctmod.Purpose">
-              <option value='default' disabled selected> Purpose</option>
-              <option *ngFor="let pur of purpose"> {{pur}} </option>        
-          </select>
-          <small class="text-danger" [class.d-none]="!ReasonHasError || Reason.untouched"> *Please choose the purpose*</small>
-        </div>
+    <p></p>
 
-        <p></p>
-        
-        <div ngModelGroup="address">
-            Addreess:
-            <div class="form-group"> 
-                <input placeholder="Street" type="text" #street="ngModel" class="form-control" required name="Street" [(ngModel)]="ctmod.Street">
-                <small class="text-danger" [class.d-none]="street.valid || street.untouched"> *Street is required*</small>
+    <!-- Phone -->
+    <div class="form-group">
+      <input
+        class="form-control"
+        [class.is-invalid]="phone.invalid && phone.touched"
+        placeholder="Phone  number"
+        type="tel"
+        pattern="^\d{10}$"
+        name="Phone"
+        #phone="ngModel"
+        required
+        [(ngModel)]="ctmod.Phone"
+      />
 
-            </div>
-            <div class="form-group"> 
-                <input placeholder="City" type="text" #city="ngModel" class="form-control" required name="City" [(ngModel)]="ctmod.City">
-                <small class="text-danger" [class.d-none]="city.valid || city.untouched"> *City is required*</small>
-            </div>
-            <div class="form-group"> 
-                <input placeholder="State" type="text" #state="ngModel" class="form-control" required name="State" [(ngModel)]="ctmod.State">
-                <small class="text-danger" [class.d-none]="state.valid || state.untouched"> *State is required*</small>
-            </div>  
-            <div class="form-group">
-                <input placeholder="Postalcode" type="text" #code="ngModel" class="form-control" required name="Postalcode" [(ngModel)]="ctmod.Postalcode">
-                <small class="text-danger" [class.d-none]="code.valid || code.untouched"> *Postalcode is required*</small>          
-            </div>
-        </div>
-        <p></p>
+      <div *ngIf="phone.invalid && phone.touched">
+        <small class="text-danger" *ngIf="phone.errors?.['required']">
+          *Phone number is required*
+        </small>
+        <small class="text-danger" *ngIf="phone.errors?.['pattern']">
+          *Phone number must be 10 digits*
+        </small>
+      </div>
+    </div>
 
-          <button [disabled]="ContactForm.form.invalid || ReasonHasError" class="btn btn-primary" type="submit"> Submit </button>
+    <p></p>
 
-    </form>
+
+    <!-- Address -->
+    <div ngModelGroup="address">
+        <h3>Address details:</h3>
+      <div class="form-group">
+        <input
+          [class.is-invalid]="street.invalid && street.touched"
+          placeholder="Street"
+          type="text"
+          #street="ngModel"
+          class="form-control"
+          required
+          name="Street"
+          [(ngModel)]="ctmod.Street"
+        />
+        <small class="text-danger" *ngIf="street.invalid && street.touched">
+          *Street name is required*
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input
+          [class.is-invalid]="city.invalid && city.touched"
+          placeholder="City"
+          type="text"
+          #city="ngModel"
+          class="form-control"
+          required
+          name="City"
+          [(ngModel)]="ctmod.City"
+        />
+        <small class="text-danger" *ngIf="city.invalid && city.touched">
+          *City name is required*
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input
+          [class.is-invalid]="state.invalid && state.touched"
+          placeholder="State"
+          type="text"
+          #state="ngModel"
+          class="form-control"
+          required
+          name="State"
+          [(ngModel)]="ctmod.State"
+        />
+        <small class="text-danger" *ngIf="state.invalid && state.touched">
+          *State name is required*
+        </small>
+      </div>
+
+      <div class="form-group">
+        <input
+          [class.is-invalid]="code.invalid && code.touched"
+          placeholder="Postalcode"
+         
+          type="text"
+          #code="ngModel"
+          class="form-control"
+          required
+          name="Postalcode"
+          [(ngModel)]="ctmod.Postalcode"
+        />
+        <small class="text-danger" *ngIf="code.invalid && code.touched">
+          *Postalcode is required*
+        </small>
+        <!-- <small class="text-danger" [class.d-none]="code.touched" *ngIf="code.errors?.['pattern']">
+          *Postalcode must be 6 digits*
+        </small> -->
+      </div>
+    </div>
+
+    <p></p>
+    
+    <!-- Purpose -->
+    <!-- <div class="form-group">
+      <select
+        placeholder="Purpose"
+        (blur)="validateReason(Reason.value)"
+        (change)="validateReason(Reason.value)"
+        #Reason="ngModel"
+        class="custom-select"
+        [class.is-invalid]="ReasonHasError && Reason.touched"
+        name="Purpose"
+        required
+        [(ngModel)]="ctmod.Purpose"
+      >
+        <option value="default" disabled selected>Purpose</option>
+        <option *ngFor="let pur of purpose">{{ pur }}</option>
+      </select>
+      <small class="text-danger" *ngIf="ReasonHasError && Reason.touched">
+        *Please choose the purpose*
+      </small>
+    </div> -->
+
+    <p></p>
+
+    <!-- Submit Button -->
+    <div>
+        <button
+        [disabled]="ContactForm.form.invalid"
+        class="btn btn-primary"
+        type="submit" >
+        Submit
+        </button>
+    </div>
+
+  </form>
 </section>
 
+<footer class="footer">
+       <div class="social-media">
+      <a href="https://github.com/Pradeep5642" target="_blank" class="icon-github"><i class="bx bxl-github"></i></a>
+      <a href="https://www.linkedin.com/in/pradeep1611" target="_blank" class="icon-linkedin"><i class="bx bxl-linkedin"></i></a>
+      <a href="mailto:mpradeepk1611@gmail.com" target="_blank" class="icon-gmail"><i class="bx bxl-gmail"></i></a>
+      <a href="https://www.instagram.com/darling__deep/" target="_blank" class="icon-instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="https://wa.me/9381791909" target="_blank" class="icon-whatsapp"><i class="bx bxl-whatsapp"></i></a>
+    </div>
+    </footer>
+
 </body>
-
-
-
 
 
 
